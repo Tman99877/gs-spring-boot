@@ -47,4 +47,11 @@ public class HelloController {
 }
 
 
-
+@GetMapping("/apodNasa")
+	public String nasa(@RequestParam(name ="date", required=false) String date, Model model) {
+		if(date == null){
+			date = LocalDate.now();
+		}
+		model.addAttribute("date", date);
+		return "nasa";
+	}
