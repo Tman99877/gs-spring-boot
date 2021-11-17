@@ -44,14 +44,16 @@ public class HelloController {
 		//return "xkcdSpecfic";
 	//}
 
-}
-
-
-@GetMapping("/apodNasa")
+	@GetMapping("/apodNasa")
 	public String nasa(@RequestParam(name ="date", required=false) String date, Model model) {
 		if(date == null){
-			date = LocalDate.now();
+			date = LocalDateTime.now();
 		}
 		model.addAttribute("date", date);
 		return "nasa";
 	}
+
+
+}
+
+
