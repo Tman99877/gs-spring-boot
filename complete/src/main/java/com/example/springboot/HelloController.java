@@ -51,7 +51,7 @@ public class HelloController {
 
 	@GetMapping("/apodNasa")
 	public String nasa(@RequestParam(name ="date", required=false) String date, Model model) {
-		if(date == null){
+		if(date == null  ){
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
                 date = dateFormat.format(date);  ;
 		}
@@ -61,5 +61,4 @@ public class HelloController {
 
 
 }
-
 
