@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 
+import java.text.DateFormat;  
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
+import java.util.Calendar; 
+
 @Controller
 public class HelloController {
 
@@ -47,7 +52,8 @@ public class HelloController {
 	@GetMapping("/apodNasa")
 	public String nasa(@RequestParam(name ="date", required=false) String date, Model model) {
 		if(date == null){
-			date = LocalDateTime.now();
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
+                date = dateFormat.format(date);  ;
 		}
 		model.addAttribute("date", date);
 		return "nasa";
